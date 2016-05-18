@@ -12,7 +12,6 @@ var word = document.getElementById('word'),
 
 // Start new game
 function newGame(){
-	var word = document.getElementById('word');
 	clearDiv();
 	placeholders = '';
 	badGuesses = 0;
@@ -46,6 +45,8 @@ function checkLetter(letter){
 			placeholders[i] = letter;
 			wrongGuess = false;
 			correctGuesses++;
+			// convert the array to a string and display it again
+			word.innerHTML = placeholders.join('');
 			// check to see if game has been won
 			if(correctGuesses == wordLength){
 				gamesWon++;
@@ -69,8 +70,6 @@ function checkLetter(letter){
 			newGame();
 		}
 	}
-	// convert the array to a string and display it again
-	word.innerHTML = placeholders.join('');
 
 	// Taking the tallies and displaying them in HTML
 	var html = "<p>Correct Guesses: " + 
