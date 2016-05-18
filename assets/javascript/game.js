@@ -1,7 +1,8 @@
 // Global variables
 var word = document.getElementById('word'),
-	letters = document.getElementById('letters'),
-	words = ['positronic', 'holodeck', 'disruptor', 'shields', 'data', 'enterprise', 'assimiliated', 'ferengi'],
+	wrongDiv = document.getElementById("wrong"),
+	words = ['positronic', 'holodeck', 'disruptor', 'shields', 'data', 'enterprise', 'assimilated', 'ferengi'],
+	placeholders = '',
 	wordToGuess,
 	wordLength,
 	badGuesses,
@@ -11,7 +12,9 @@ var word = document.getElementById('word'),
 
 // Start new game
 function newGame(){
-	var placeholders = '';
+	var word = document.getElementById('word');
+	clearDiv();
+	placeholders = '';
 	badGuesses = 0;
 	correctGuesses = 0;
 	guessesRemaining = 10;
@@ -22,23 +25,15 @@ function newGame(){
 		placeholders += '_';
 	}
 	word.innerHTML = placeholders;
-	//letters.innerHTML = '';
 	document.onkeyup = function(event){
 		var letter = String.fromCharCode(event.keyCode).toLowerCase();
 		checkLetter(letter);
 	}
 }
 
-// Get selected letter and remove it from the alphabet pad
-function getLetter(){
-	checkLetter(this.innerHTML);
-	this.innerHTML = '&nbsp;';
-	this.style.cursor = 'default';
-	this.onclick = null;
-}
-
 // Check whether selected letter is in the word to be guessed
 function checkLetter(letter){
+	var newWrongDiv = document.createElement("div");
 	var placeholders = word.innerHTML,
 	    wrongGuess = true;
 	// split the placeholders into an array
@@ -55,6 +50,7 @@ function checkLetter(letter){
 			if(correctGuesses == wordLength){
 				gamesWon++;
 				alert("You won! You guessed the word "+ wordToGuess + "." + " Play again.");
+				clearDiv();
 				newGame();
 			}
 		}
@@ -62,14 +58,16 @@ function checkLetter(letter){
 	// if the guess was incorrect, increment the number of bad
 	// guesses and redraw the canvas
 	if(wrongGuess){
+		newWrongDiv.innerHTML = letter;
+		wrongDiv.appendChild(newWrongDiv);
 		badGuesses++;
 		if(guessesRemaining > 1){
 			guessesRemaining--;
 		}else{
 			alert("You lose! The word was "+ wordToGuess + "." + " Try again.");
+			clearDiv();
 			newGame();
 		}
-		//drawCanvas();
 	}
 	// convert the array to a string and display it again
 	word.innerHTML = placeholders.join('');
@@ -90,4 +88,9 @@ function checkLetter(letter){
 
 	// Placing the html into the game ID
 	document.querySelector('#game').innerHTML = html;
+}
+
+function clearDiv(){
+    document.getElementById("wrong").innerHTML = "";
+    document.getElementById("word").innerHTML = "";
 }
