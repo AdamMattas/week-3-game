@@ -13,10 +13,9 @@ p{
 
 .viewScreen{
 	position: absolute;
-	margin: 150px 0 0 157px;
-	width: 825px;
-	height: 315px;
-	z-index: 99;
+	margin: 0 0 0 157px;
+	width: 850px;
+	height: 675px;
 }
 
 .h3-setting{
