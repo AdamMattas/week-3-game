@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body{
+	background-color: #000000;
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+p{
+	padding-bottom: 10px;
+}
+
+.viewScreen{
+	position: absolute;
+	margin: 150px 0 0 157px;
+	width: 825px;
+	height: 315px;
+	z-index: 99;
+}
+
+.h3-setting{
+	font-size: 18px;
+	color: #FB9B34;
+	text-decoration: underline;
+}
+
+.content-wrapper{
+	width: 1244px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.background-wrapper{
+  width: 1244px;
+  height: 700px;
+  position: absolute;
+  top:0;
+  bottom:0;
+	margin: auto;
+	z-index: 98;
+}
+
+.background-main{
+	background: url('../images/star_trek_hangman.png');
+	background-repeat: no-repeat;
+  width: 1244px;
+  height: 700px;
+  position: absolute;
+  top:0;
+  bottom:0;
+	margin: auto;
+	z-index: 100;
+}
+
+.side-panel{
+	position: relative;
+	top:90px;
+	float: right;
+	margin-right: 13px;
+	width:204px;
+	height: 519px;
+	border: 1px solid #808080;
+	border-left: none;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	background-color: #808080;
+	z-index: 101;
+}
+
+#word{
+	position: absolute;
+	margin: 150px 0 0 157px;
+	width: 825px;
+	height: 315px;
+	text-align: center;
+	letter-spacing: 25px;
+	color: #FB9B34;
+	font-size: 45px;
+	padding-top: 50px;
+}
+
+#over-success{
+	position: absolute;
+	margin: 150px 0 0 157px;
+	width: 825px;
+	height: 315px;
+	text-align: center;
+	letter-spacing: 25px;
+	color: green;
+	font-size: 45px;
+	padding-top: 50px;
+}
+
+#over-fail{
+	position: absolute;
+	margin: 150px 0 0 157px;
+	width: 825px;
+	height: 315px;
+	text-align: center;
+	letter-spacing: 25px;
+	color: red;
+	font-size: 45px;
+	padding-top: 50px;
+}
+
+#game{
+	padding-top: 5px;
+}
+
+.statusWrapper{
+	position: absolute;
+	padding: 10px;
+	top: 4px;
+	left: 4px;
+	width: 195px;
+	height: 175px;
+	color: #ffffff;
+	background-color: #000000;
+	border: 1px solid #000000;
+	border-left: none;
+	border-top-right-radius: 15px;
+	z-index: 102;
+}
+
+.wrongWrapper{
+	position: absolute;
+	padding: 10px;
+	top: 179px;
+	left: 4px;
+	width: 195px;
+	height: 70px;
+	color: #ffffff;
+	background-color: #000000;
+	border: 1px solid #000000;
+	border-left: none;
+	z-index: 102;
+}
+
+#wrong{
+	position: relative;
+	letter-spacing: 7px;
+	float: left;
+	font-size: 20px;
+	color: #ffffff;
+	z-index: 103;
+}
+
+.hint{
+	bottom: 150px;
+}
+
+.abortGame{
+	bottom: 85px;
+}
+
+.newGame{
+	bottom: 20px;
+}
+
+.gameButton{
+	position: absolute;
+	width: 204px;
+	height: 70px;
+	border-top: 5px solid #000000;
+	border-bottom: 5px solid #000000;
+	text-align: center;
+	padding-top: 17px;
+	font-size: 25px;
+	cursor: pointer;
+	z-index: 102;
+}
+
+#video2, #video3, #video4, #video5, #video6, #video7, #video8, #video9, #video10, #video11{
+	display: none;
+}

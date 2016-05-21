@@ -6,24 +6,94 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
-<body>
+<body onload="initiate()">
 
-	<div id="game">
-		<!-- <p>Press any key to engage.</p> -->
+	<div class="content-wrapper">
+
+		<div class="background-wrapper">
+
+			<audio id="audio1">
+			  <source src="assets/audio/input_ok_1_clean.mp3" type="audio/mp3">
+			</audio>
+
+			<audio id="audio2">
+			  <source src="assets/audio/denybeep3.mp3" type="audio/mp3">
+			</audio>
+
+			<audio id="audio3">
+			  <source src="assets/audio/accessDenied.wav" type="audio/wav">
+			</audio>
+
+			<video id="video1" class="viewScreen">
+				<source class="viewScreen" src="assets/videos/star_trek_intro_1.mp4" type="video/mp4">
+			</video>
+
+			<video id="video2" class="viewScreen">
+				<source class="viewScreen"  src="assets/videos/epic_intro.mp4" type="video/mp4">
+			</video>
+
+			<video id="video3" class="viewScreen">
+				<source class="viewScreen"  src="assets/videos/borg_ultimatum.mp4" type="video/mp4">
+			</video>
+
+			<video id="video4" class="viewScreen">
+				<source class="viewScreen"  src="assets/videos/badAttack2.mp4" type="video/mp4">
+			</video>
+
+			<video id="video5" class="viewScreen">
+				<source class="viewScreen"  src="assets/videos/badAttack1.mp4" type="video/mp4">
+			</video>
+
+			<video id="video6" class="viewScreen">
+				<source class="viewScreen"  src="assets/videos/goodAttack1.mp4" type="video/mp4">
+			</video>
+
+			<video id="video7" class="viewScreen">
+				<source class="viewScreen"  src="assets/videos/goodAttack2.mp4" type="video/mp4">
+			</video>
+
+			<video id="video8" class="viewScreen">
+				<source class="viewScreen"  src="assets/videos/goodBadAttack.mp4" type="video/mp4">
+			</video>
+
+			<video id="video9" class="viewScreen">
+				<source class="viewScreen"  src="assets/videos/borgDestroyed1.mp4" type="video/mp4">
+			</video>
+
+			<video id="video10" class="viewScreen">
+				<source class="viewScreen"  src="assets/videos/redAlert.mp4" type="video/mp4">
+			</video>
+
+			<div class="background-main">
+
+				<p id="word"></p>
+				<p id="over-success"></p>
+				<p id="over-fail"></p>
+				<div class="side-panel">
+
+					<div class="statusWrapper">
+						<p class="h3-setting">MISSION STATUS</p>
+						<div id="game"></div>
+					</div>
+					
+					<div class="wrongWrapper">
+						<P class="h3-setting">INVALID DATA</P>
+						<span id="wrong"></span>
+					</div>
+
+					<div class="hint gameButton" onclick="hint()">HINT</div>
+
+					<div class="abortGame gameButton" onclick="abortGame()">ABORT GAME</div>
+
+					<div class="newGame gameButton" onclick="newGame()">NEW GAME</div>
+					
+				</div>
+				
+			</div>
+
+		</div>
+
 	</div>
-
-	<!-- <div>Select a category
-		<input id="category" type="button" onclick="chooseCategory(category.value)" value="technology"/>
-		<input id="category1" type="button" onclick="chooseCategory1(category1.value)" value="species"/>
-		<input id="category2" type="button" onclick="chooseCategory2(category2.value)" value="quotes"/>
-		<input id="category3" type="button" onclick="chooseCategory3(category3.value)" value="vessels"/>
-		<input id="category4" type="button" onclick="chooseCategory4(category4.value)" value="personnel"/>
-	</div> -->
-
-	<h1>Star Trek Hangman</h1>
-	<div onclick="newGame()">New Game</div>
-	<p id="word"></p>
-	<div id="wrong"></div>
 
 	<script src="assets/javascript/game.js"></script>
 </body>
