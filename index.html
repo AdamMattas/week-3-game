@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>Star Trek TNG Hangman</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 
+<!-- waits for page to load and starts intro video -->
 <body onload="initiate()">
 
 	<div class="content-wrapper">
 
 		<div class="background-wrapper">
 
+		<!-- audio clips that are played during player interaction -->
 			<audio id="audio1">
 			  <source src="assets/audio/input_ok_1_clean.mp3" type="audio/mp3">
 			</audio>
@@ -24,6 +28,8 @@
 			  <source src="assets/audio/accessDenied.wav" type="audio/wav">
 			</audio>
 
+			<!-- video clips played throughout the game
+			they are controlled through js file -->
 			<video id="video1" class="viewScreen">
 				<source src="assets/videos/introSmall.mp4" type="video/mp4">
 			</video>
@@ -64,11 +70,19 @@
 				<source src="assets/videos/redAlertSmall.mp4" type="video/mp4">
 			</video>
 
+			<video id="video11" class="viewScreen">
+				<source src="assets/videos/redAlertSmall.mp4" type="video/mp4">
+			</video>
+
+			<!-- wrapper to keep image center -->
 			<div class="background-main">
 
+			<!-- p tags for hangman words displayed on viewscreen -->
 				<p id="word"></p>
 				<p id="over-success"></p>
 				<p id="over-fail"></p>
+
+				<!-- begin wrapper for side panel -->
 				<div class="side-panel">
 
 					<div class="statusWrapper">
@@ -81,13 +95,14 @@
 						<span id="wrong"></span>
 					</div>
 
-					<div class="hint gameButton" onclick="hint()">HINT</div>
+					<div class="hint gameButton" onclick="hangman.hint()">HINT</div>
 
-					<div class="abortGame gameButton" onclick="abortGame()">ABORT GAME</div>
+					<div class="abortGame gameButton" onclick="hangman.abortGame()">ABORT GAME</div>
 
-					<div class="newGame gameButton" onclick="newGame()">NEW GAME</div>
+					<div class="newGame gameButton" onclick="hangman.newGame()">NEW GAME</div>
 					
 				</div>
+				<!-- end wrapper for side panel -->
 				
 			</div>
 
@@ -96,5 +111,6 @@
 	</div>
 
 	<script src="assets/javascript/game.js"></script>
+
 </body>
 </html>
