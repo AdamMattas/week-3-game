@@ -16,6 +16,7 @@ p{
 	margin: 0 0 0 157px;
 	width: 850px;
 	height: 675px;
+	z-index: 99;
 }
 
 .h3-setting{

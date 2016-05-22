@@ -11,6 +11,8 @@ var word = document.getElementById('word'),
 	correctGuesses,
 	guessesRemaining,
 	gamesWon = 0,
+	vidEnd = document.getElementById("video9"),
+	vidEnd2 = document.getElementById("video10"),
 	success = document.getElementById("over-success"),
 	fail = document.getElementById("over-fail"),
 	audio1 = document.getElementById("audio1"),
@@ -26,7 +28,7 @@ var word = document.getElementById('word'),
 	vid8 = document.getElementById("video8"),
 	vid9 = document.getElementById("video9"),
 	vid10 = document.getElementById("video10"),
-	vid11 = document.getElementById("video11"); 
+	vid11 = document.getElementById("video11");
 
 // Starts a new game
 function newGame(){
@@ -103,9 +105,12 @@ function checkLetter(letter){
 				clearDiv();
 				stopVid();
 				playVid9();
-				success.innerHTML = wordToGuess;
-				alert("You won! You guessed the word "+ wordToGuess + "." + " Play again.");
-				newGame();
+				document.getElementById("over-success").innerHTML = wordToGuess;
+				vidEnd.addEventListener('ended', function(e) { 
+					newGame();
+				});
+				// alert("You won! You guessed the word "+ wordToGuess + "." + " Play again.");
+				// newGame();
 			}
 		}
 	}
@@ -136,12 +141,17 @@ function checkLetter(letter){
 				playVid8();
 			}
 		}else{
+			clearDiv();
+			document.getElementById("over-fail").innerHTML = wordToGuess;
 			stopVid();
 			playVid10();
-			clearDiv();
-			fail.innerHTML = wordToGuess;
-			alert("You lose! The word was "+ wordToGuess + "." + " Try again.");
-			newGame();
+			
+			
+			vidEnd2.addEventListener('ended', function(e) { 
+				newGame();
+			});
+			// alert("You lose! The word was "+ wordToGuess + "." + " Try again.");
+			// newGame();
 		}
 	}
 
@@ -165,8 +175,10 @@ function checkLetter(letter){
 
 //clear the incorrect letters and guessed word
 function clearDiv(){
-    document.getElementById("wrong").innerHTML = "";
-    document.getElementById("word").innerHTML = "";
+  document.getElementById("wrong").innerHTML = "";
+  document.getElementById("word").innerHTML = "";
+  document.getElementById("over-fail").innerHTML = "";
+  document.getElementById("over-success").innerHTML = "";
 }
 
 //play intro video and press key to start game
