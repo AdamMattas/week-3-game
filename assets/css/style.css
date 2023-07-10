@@ -3,174 +3,270 @@
   margin: 0;
 }
 
-body{
-	background-color: #000000;
-	font-family: "Arial Black", Gadget, sans-serif;
+body {
+  background-color: #000000;
+  font-family: "Arial Black", Gadget, sans-serif;
 }
-p{
-	padding-bottom: 10px;
-}
-
-.viewScreen{
-	position: absolute;
-	margin: 0 0 0 157px;
-	width: 850px;
-	height: 675px;
-	z-index: 99;
+p {
+  padding-bottom: 10px;
 }
 
-.h3-setting{
-	font-size: 18px;
-	color: #FB9B34;
-	text-decoration: underline;
+.hide {
+  display: none;
 }
 
-.content-wrapper{
-	width: 1244px;
-	height: 100%;
-	margin: 0 auto;
+.viewScreen {
+  position: absolute;
+  margin: 0 0 0 157px;
+  width: 850px;
+  height: 675px;
+  z-index: 99;
 }
 
-.background-wrapper{
+.h3-setting {
+  font-size: 18px;
+  color: #fb9b34;
+  text-decoration: underline;
+}
+
+.content-wrapper {
+  width: 1244px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.background-wrapper {
   width: 1244px;
   height: 700px;
   position: absolute;
-  top:0;
-  bottom:0;
-	margin: auto;
-	z-index: 98;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 98;
 }
 
-.background-main{
-	background: url('../images/star_trek_hangman.png');
-	background-repeat: no-repeat;
+.background-main {
+  background-image: url("../images/star_trek_hangman.png");
+  background-repeat: no-repeat;
   width: 1244px;
   height: 700px;
   position: absolute;
-  top:0;
-  bottom:0;
-	margin: auto;
-	z-index: 100;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 100;
 }
 
-.side-panel{
-	position: relative;
-	top:90px;
-	float: right;
-	margin-right: 13px;
-	width:204px;
-	height: 519px;
-	border: 1px solid #808080;
-	border-left: none;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-	background-color: #808080;
-	z-index: 101;
+.side-panel {
+  position: relative;
+  top: 90px;
+  float: right;
+  margin-right: 13px;
+  width: 204px;
+  height: 519px;
+  border: 1px solid #808080;
+  border-left: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #808080;
+  z-index: 101;
 }
 
-#word{
-	position: absolute;
-	margin: 150px 0 0 157px;
-	width: 825px;
-	height: 315px;
-	text-align: center;
-	letter-spacing: 25px;
-	color: #FB9B34;
-	font-size: 45px;
-	padding-top: 50px;
+#word {
+  position: absolute;
+  margin: 150px 0 0 157px;
+  width: 825px;
+  height: 315px;
+  text-align: center;
+  letter-spacing: 25px;
+  color: #fb9b34;
+  font-size: 45px;
+  padding-top: 50px;
 }
 
-#over-success{
-	position: absolute;
-	margin: 150px 0 0 157px;
-	width: 825px;
-	height: 315px;
-	text-align: center;
-	letter-spacing: 25px;
-	color: green;
-	font-size: 45px;
-	padding-top: 50px;
+#over-success {
+  position: absolute;
+  margin: 150px 0 0 157px;
+  width: 825px;
+  height: 315px;
+  text-align: center;
+  letter-spacing: 25px;
+  color: green;
+  text-shadow: 1px 1px #fff, -1px 1px #fff, 1px -1px #fff, -1px -1px #fff,
+    1px 1px 5px #555;
+  /* border: 4px solid #fb9b34; */
+  font-size: 45px;
+  padding-top: 50px;
 }
 
-#over-fail{
-	position: absolute;
-	margin: 150px 0 0 157px;
-	width: 825px;
-	height: 315px;
-	text-align: center;
-	letter-spacing: 25px;
-	color: red;
-	font-size: 45px;
-	padding-top: 50px;
+#over-fail {
+  position: absolute;
+  margin: 150px 0 0 157px;
+  width: 825px;
+  height: 315px;
+  text-align: center;
+  letter-spacing: 25px;
+  color: red;
+  text-shadow: 1px 1px #fff, -1px 1px #fff, 1px -1px #fff, -1px -1px #fff,
+    1px 1px 5px #555;
+  font-size: 45px;
+  padding-top: 50px;
 }
 
-#game{
-	padding-top: 5px;
+#game {
+  padding-top: 5px;
 }
 
-.statusWrapper{
-	position: absolute;
-	padding: 10px;
-	top: 4px;
-	left: 4px;
-	width: 195px;
-	height: 175px;
-	color: #ffffff;
-	background-color: #000000;
-	border: 1px solid #000000;
-	border-left: none;
-	border-top-right-radius: 15px;
-	z-index: 102;
+.statusWrapper {
+  position: absolute;
+  padding: 10px;
+  top: 4px;
+  left: 4px;
+  width: 195px;
+  height: 175px;
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid #000000;
+  border-left: none;
+  border-top-right-radius: 15px;
+  z-index: 102;
 }
 
-.wrongWrapper{
-	position: absolute;
-	padding: 10px;
-	top: 179px;
-	left: 4px;
-	width: 195px;
-	height: 70px;
-	color: #ffffff;
-	background-color: #000000;
-	border: 1px solid #000000;
-	border-left: none;
-	z-index: 102;
+.wrongWrapper {
+  position: absolute;
+  padding: 10px;
+  top: 179px;
+  left: 4px;
+  width: 195px;
+  height: 70px;
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid #000000;
+  border-left: none;
+  z-index: 102;
 }
 
-#wrong{
-	position: relative;
-	letter-spacing: 7px;
-	float: left;
-	font-size: 20px;
-	color: #ffffff;
-	z-index: 103;
+#wrong {
+  position: relative;
+  letter-spacing: 7px;
+  float: left;
+  font-size: 16px;
+  color: #ffffff;
+  z-index: 103;
 }
 
-.hint{
-	bottom: 150px;
+.hint {
+  bottom: 150px;
 }
 
-.abortGame{
-	bottom: 85px;
+.abortGame {
+  bottom: 85px;
 }
 
-.newGame{
-	bottom: 20px;
+.newGame {
+  bottom: 20px;
 }
 
-.gameButton{
-	position: absolute;
-	width: 204px;
-	height: 70px;
-	border-top: 5px solid #000000;
-	border-bottom: 5px solid #000000;
-	text-align: center;
-	padding-top: 17px;
-	font-size: 25px;
-	cursor: pointer;
-	z-index: 102;
+.gameButton {
+  position: absolute;
+  width: 204px;
+  height: 70px;
+  border-top: 5px solid #000000;
+  border-bottom: 5px solid #000000;
+  text-align: center;
+  padding-top: 17px;
+  font-size: 25px;
+  cursor: pointer;
+  z-index: 102;
 }
 
-#video2, #video3, #video4, #video5, #video6, #video7, #video8, #video9, #video10, #video11{
-	display: none;
+#keyboard-icon {
+  background-image: url("../images/keyboard_Icon.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  left: calc(44% - 4px);
+  cursor: pointer;
+}
+
+#keyboard {
+  position: absolute;
+  bottom: 90px;
+  border: 4px solid #808080;
+  background-color: #000000;
+  left: 41px;
+  width: calc(77% + 8px);
+  min-height: 86px;
+}
+
+#keyboard span {
+  color: #ffffff;
+  font-size: 21px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  padding: 5px 0px 5px 0px;
+  margin: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#row-1 {
+  /* margin: 0px 15px 0px 15px; */
+}
+
+#row-2 {
+  margin: 0px 45px 0px 45px;
+}
+
+#row-3 {
+  margin: 0px 141px 0px 141px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#q,
+#w,
+#e,
+#r,
+#t,
+#y,
+#u,
+#i,
+#o,
+#p,
+#a,
+#s,
+#d,
+#f,
+#g,
+#h,
+#j,
+#k,
+#l,
+#z,
+#x,
+#c,
+#v,
+#b,
+#n,
+#m {
+  flex: 1;
+}
+
+#video2,
+#video3,
+#video4,
+#video5,
+#video6,
+#video7,
+#video8,
+#video9,
+#video10,
+#video11 {
+  display: none;
 }

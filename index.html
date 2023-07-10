@@ -1,116 +1,177 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <title>Star Trek TNG Hangman</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  </head>
 
-	<title>Star Trek TNG Hangman</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- waits for page to load and starts intro video -->
+  <body onload="initiate()">
+    <div class="content-wrapper">
+      <div class="background-wrapper">
+        <!-- audio clips that are played during player interaction -->
+        <audio id="audio1">
+          <source src="assets/audio/input_ok_1_clean.mp3" type="audio/mp3" />
+        </audio>
 
-</head>
+        <audio id="audio2">
+          <source src="assets/audio/denybeep3.mp3" type="audio/mp3" />
+        </audio>
 
-<!-- waits for page to load and starts intro video -->
-<body onload="initiate()">
+        <audio id="audio3">
+          <source src="assets/audio/accessDenied.wav" type="audio/wav" />
+        </audio>
 
-	<div class="content-wrapper">
-
-		<div class="background-wrapper">
-
-		<!-- audio clips that are played during player interaction -->
-			<audio id="audio1">
-			  <source src="assets/audio/input_ok_1_clean.mp3" type="audio/mp3">
-			</audio>
-
-			<audio id="audio2">
-			  <source src="assets/audio/denybeep3.mp3" type="audio/mp3">
-			</audio>
-
-			<audio id="audio3">
-			  <source src="assets/audio/accessDenied.wav" type="audio/wav">
-			</audio>
-
-			<!-- video clips played throughout the game
+        <!-- video clips played throughout the game
 			they are controlled through js file -->
-			<video id="video1" class="viewScreen">
-				<source src="assets/videos/introSmall.mp4" type="video/mp4">
-			</video>
+        <video id="video1" class="viewScreen">
+          <source
+            src="assets/videos/introSmall_CLIPCHAMP_keep.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-			<video id="video2" class="viewScreen">
-				<source src="assets/videos/epicIntroSmall.mp4" type="video/mp4">
-			</video>
+        <video id="video2" class="viewScreen">
+          <source
+            src="assets/videos/epicIntroSmall_CLIPCHAMP_keep.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-			<video id="video3" class="viewScreen">
-				<source src="assets/videos/borgUltimatumSmall.mp4" type="video/mp4">
-			</video>
+        <video id="video3" class="viewScreen">
+          <source
+            src="assets/videos/borgUltimatumSmall_CLIPCHAMP_keep.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-			<video id="video4" class="viewScreen">
-				<source src="assets/videos/badAttack2small.mp4" type="video/mp4">
-			</video>
+        <video id="video4" class="viewScreen">
+          <source
+            src="assets/videos/badAttack2small_CLIPCHAMP_keep.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-			<video id="video5" class="viewScreen">
-				<source src="assets/videos/badAttack1small.mp4" type="video/mp4">
-			</video>
+        <video id="video5" class="viewScreen">
+          <source
+            src="assets/videos/badAttack1small_CLIPCHAMP_keep.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-			<video id="video6" class="viewScreen">
-				<source src="assets/videos/goodAttack1small.mp4" type="video/mp4">
-			</video>
+        <video id="video6" class="viewScreen">
+          <source
+            src="assets/videos/goodAttack1small_CLIPCHAMP_keep.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-			<video id="video7" class="viewScreen">
-				<source src="assets/videos/goodAttack2small.mp4" type="video/mp4">
-			</video>
+        <video id="video7" class="viewScreen">
+          <source
+            src="assets/videos/goodAttack2small_CLIPCHAMP_keep.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-			<video id="video8" class="viewScreen">
-				<source src="assets/videos/goodBadAttackSmall.mp4" type="video/mp4">
-			</video>
+        <video id="video8" class="viewScreen">
+          <source
+            src="assets/videos/goodBadAttackSmall_CLIPCHAMP_keep.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-			<video id="video9" class="viewScreen">
-				<source src="assets/videos/borgDestroyedSmall.mp4" type="video/mp4">
-			</video>
+        <video id="video9" class="viewScreen">
+          <source
+            src="assets/videos/borgDestroyedSmall_CLIPCHAMP_keep.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-			<video id="video10" class="viewScreen">
-				<source src="assets/videos/redAlertSmall.mp4" type="video/mp4">
-			</video>
+        <video id="video10" class="viewScreen">
+          <source
+            src="assets/videos/redAlertSmall_CLIPCHAMP_keep.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-			<video id="video11" class="viewScreen">
-				<source src="assets/videos/redAlertSmall.mp4" type="video/mp4">
-			</video>
+        <video id="video11" class="viewScreen">
+          <source
+            src="assets/videos/redAlertSmall_CLIPCHAMP_keep.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-			<!-- wrapper to keep image center -->
-			<div class="background-main">
+        <!-- wrapper to keep image center -->
+        <div class="background-main">
+          <!-- p tags for hangman words displayed on viewscreen -->
+          <p id="word"></p>
+          <p id="over-success" class="hide"></p>
+          <p id="over-fail" class="hide"></p>
 
-			<!-- p tags for hangman words displayed on viewscreen -->
-				<p id="word"></p>
-				<p id="over-success"></p>
-				<p id="over-fail"></p>
+          <!-- begin wrapper for side panel -->
+          <div class="side-panel">
+            <div class="statusWrapper">
+              <p class="h3-setting">MISSION STATUS</p>
+              <div id="game"></div>
+            </div>
 
-				<!-- begin wrapper for side panel -->
-				<div class="side-panel">
+            <div class="wrongWrapper">
+              <p class="h3-setting">INVALID DATA</p>
+              <span id="wrong"></span>
+            </div>
 
-					<div class="statusWrapper">
-						<p class="h3-setting">MISSION STATUS</p>
-						<div id="game"></div>
-					</div>
-					
-					<div class="wrongWrapper">
-						<P class="h3-setting">INVALID DATA</P>
-						<span id="wrong"></span>
-					</div>
+            <div class="hint gameButton" onclick="hangman.hint()">HINT</div>
 
-					<div class="hint gameButton" onclick="hangman.hint()">HINT</div>
+            <div class="abortGame gameButton" onclick="hangman.abortGame()">
+              ABORT GAME
+            </div>
 
-					<div class="abortGame gameButton" onclick="hangman.abortGame()">ABORT GAME</div>
+            <div class="newGame gameButton" onclick="hangman.newGame()">
+              NEW GAME
+            </div>
+          </div>
+          <!-- end wrapper for side panel -->
 
-					<div class="newGame gameButton" onclick="hangman.newGame()">NEW GAME</div>
-					
-				</div>
-				<!-- end wrapper for side panel -->
-				
-			</div>
+          <div id="keyboard-icon" alt="virtual keyboard button"></div>
+          <div id="keyboard" class="hide">
+            <div id="row-1" class="flex-container">
+              <span id="q">Q</span>
+              <span id="w">W</span>
+              <span id="e">E</span>
+              <span id="r">R</span>
+              <span id="t">T</span>
+              <span id="y">Y</span>
+              <span id="u">U</span>
+              <span id="i">I</span>
+              <span id="o">O</span>
+              <span id="p">P</span>
+            </div>
+            <div id="row-2" class="flex-container">
+              <span id="a">A</span>
+              <span id="s">S</span>
+              <span id="d">D</span>
+              <span id="f">F</span>
+              <span id="g">G</span>
+              <span id="h">H</span>
+              <span id="j">J</span>
+              <span id="k">K</span>
+              <span id="l">L</span>
+            </div>
+            <div id="row-3" class="flex-container">
+              <span id="z">Z</span>
+              <span id="x">X</span>
+              <span id="c">C</span>
+              <span id="v">V</span>
+              <span id="b">B</span>
+              <span id="n">N</span>
+              <span id="m">M</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		</div>
-
-	</div>
-
-	<script src="assets/javascript/game.js"></script>
-
-</body>
+    <script src="assets/javascript/game.js"></script>
+  </body>
 </html>
